@@ -73,7 +73,6 @@ function nextDate(date) {
   if (day > dateList[month - 1]) {
     if (month == 2) {
       if (checkLeapYear(year)) {
-        console.log("true");
         if (day > 29) {
           day = 1;
           month++;
@@ -106,7 +105,6 @@ function previousDate(date) {
   if (day < dateList[month - 1]) {
     if (month == 3) {
       if (checkLeapYear(year)) {
-        console.log("true");
         if (day < 1) {
           day = 29;
           month--;
@@ -130,5 +128,60 @@ function previousDate(date) {
   newDate = { day: day, month: month, year: year };
   return newDate;
 }
-date = { day: 1, month: 3, year: 2021 };
-console.log(previousDate(date));
+function daysBetween(date) {
+  let counternext = 0;
+  let counterprevious = 0;
+  let nextIterDate = date;
+  let previousIterDate = date;
+  while (true) {
+    counternext++;
+
+    if (checkPalindromeForAllFormats(nextIterDate)) {
+      break;
+    }
+    nextIterDate = nextDate(nextIterDate);
+  }
+  while (true) {
+    counterprevious++;
+
+    if (checkPalindromeForAllFormats(previousIterDate)) {
+      break;
+    }
+    previousIterDate = previousDate(previousIterDate);
+  }
+
+  if (counternext > counterprevious) {
+    return [counterprevious, previousIterDate];
+  } else {
+    return [counternext, nextIterDate];
+  }
+}
+function clickHandler() {
+  if (userDate.value !== "") {
+    var splitDate = userDate.value.split("-");
+    var day = splitDate[2];
+    var month = splitDate[1];
+    var year = splitDate[0];
+    var date = {
+      day: day,
+      month: month,
+      year: year,
+    };
+    if (checkPalindromeForAllFormats(date)) {
+      output.innerHTML = `It's a Palindrome!!😎`;
+    } else {
+      var daysBtw = daysBetween(date);
+      if (daysBtw[0] != 1) {
+        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} days`;
+      } else {
+        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} day`;
+      }
+    }
+  } else {
+    output.innerHTML = `Please enter a valid date!`;
+  }
+}
+var userDate = document.querySelector("#date-dob");
+const checkButton = document.querySelector("#check");
+const output = document.querySelector("#output");
+checkButton.addEventListener("click", clickHandler);
