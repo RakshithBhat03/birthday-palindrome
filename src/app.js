@@ -21,13 +21,12 @@ function checkPalindrome(str) {
 }
 function dateToString(date) {
   strDate = { day: "", month: "", year: "" };
-
-  if (date.day < 10) {
+  if (Number(date.day) < 10 && String(date.day).length < 2) {
     strDate.day = "0" + date.day;
   } else {
     strDate.day = date.day.toString();
   }
-  if (date.month < 10) {
+  if (Number(date.month < 10) && String(date.month).length < 2) {
     strDate.month = "0" + date.month;
   } else {
     strDate.month = date.month.toString();
@@ -47,6 +46,7 @@ function returnAllDateFormat(date) {
 }
 function checkPalindromeForAllFormats(date) {
   var strDate = dateToString(date);
+
   var allFormatDates = returnAllDateFormat(strDate);
   for (let i = 0; i < allFormatDates.length; i++) {
     if (checkPalindrome(allFormatDates[i])) {
@@ -66,9 +66,11 @@ function checkLeapYear(year) {
 }
 function nextDate(date) {
   var dateList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  day = Number(date.day);
-  month = Number(date.month);
-  year = Number(date.year);
+  var strDate = dateToString(date);
+
+  day = Number(strDate.day);
+  month = Number(strDate.month);
+  year = Number(strDate.year);
   day++;
   if (day > dateList[month - 1]) {
     if (month == 2) {
@@ -93,16 +95,19 @@ function nextDate(date) {
     month = 1;
     year++;
   }
-  newDate = { day: day, month: month, year: year };
+  var newDate = { day: day, month: month, year: year };
   return newDate;
 }
 function previousDate(date) {
   var dateList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  day = Number(date.day);
-  month = Number(date.month);
-  year = Number(date.year);
+  var strDate = dateToString(date);
+
+  var day = Number(strDate.day);
+  var month = Number(strDate.month);
+  var year = Number(strDate.year);
+
   day--;
-  if (day < dateList[month - 1]) {
+  if (day < 1) {
     if (month == 3) {
       if (checkLeapYear(year)) {
         if (day < 1) {
@@ -126,6 +131,7 @@ function previousDate(date) {
     year--;
   }
   newDate = { day: day, month: month, year: year };
+
   return newDate;
 }
 function daysBetween(date) {
@@ -134,19 +140,17 @@ function daysBetween(date) {
   let nextIterDate = date;
   let previousIterDate = date;
   while (true) {
-    counternext++;
-
     if (checkPalindromeForAllFormats(nextIterDate)) {
       break;
     }
+    counternext++;
     nextIterDate = nextDate(nextIterDate);
   }
   while (true) {
-    counterprevious++;
-
     if (checkPalindromeForAllFormats(previousIterDate)) {
       break;
     }
+    counterprevious++;
     previousIterDate = previousDate(previousIterDate);
   }
 
@@ -159,6 +163,7 @@ function daysBetween(date) {
 function clickHandler() {
   if (userDate.value !== "") {
     var splitDate = userDate.value.split("-");
+
     var day = splitDate[2];
     var month = splitDate[1];
     var year = splitDate[0];
@@ -181,6 +186,7 @@ function clickHandler() {
     output.innerHTML = `Please enter a valid date!`;
   }
 }
+
 var userDate = document.querySelector("#date-dob");
 const checkButton = document.querySelector("#check");
 const output = document.querySelector("#output");
