@@ -177,9 +177,9 @@ function clickHandler() {
     } else {
       var daysBtw = daysBetween(date);
       if (daysBtw[0] != 1) {
-        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} days`;
+        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} days.`;
       } else {
-        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} day`;
+        output.innerHTML = `The nearest palindrom date is ${daysBtw[1].day}-${daysBtw[1].month}-${daysBtw[1].year}.You missed it by ${daysBtw[0]} day.`;
       }
     }
   } else {

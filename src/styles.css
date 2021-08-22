@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=PT+Sans:wght@400;700&display=swap");
+:root {
+  --border-color: #111827;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #bdc3c7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.container {
+  margin: 12rem auto;
+  /* border: 1px black solid; */
+  max-width: 600px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+#date-dob {
+  display: block;
+  margin: 3rem auto;
+  width: 15rem;
+  padding: 0.5rem;
+  border: 2px var(--border-color) solid;
+  font-size: 1.2rem;
+}
+#check {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.3rem;
+  border: none;
+  border: 2px var(--border-color) solid;
+  background: transparent;
+}
+#check:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+#output {
+  font-size: 2rem;
+  padding: 1.5rem;
+}
+h1 {
+  font-size: 3rem;
+}
