@@ -10,16 +10,16 @@
 
 4. Date palindrome comparison is done in the following formats.
 
-- [x] ddmmyyyy
+   - [x] ddmmyyyy
 
-- [x] mmddyyyy
+   - [x] mmddyyyy
 
-- [x] yyyymmdd
+   - [x] yyyymmdd
 
-- [x] ddmmyy
+   - [x] ddmmyy
 
-- [x] mmddyy
+   - [x] mmddyy
 
-- [x] ymmdd
+   - [x] ymmdd
 
 **Hosted at** https://rakshith-birthday-palindrome.netlify.app/
