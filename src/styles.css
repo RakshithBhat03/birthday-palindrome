@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=PT+Sans:wght@400;700&display=swap");
 :root {
   --border-color: #111827;
+  --primary-color: white;
 }
 body {
   font-family: "Noto Sans KR", sans-serif;
@@ -23,7 +24,7 @@ body {
   margin: 12rem auto;
   /* border: 1px black solid; */
   max-width: 600px;
-  color: white;
+  color: var(--primary-color);
   text-shadow: 2px 2px 4px #000000;
 }
 #date-dob {
@@ -51,4 +52,34 @@ body {
 }
 h1 {
   font-size: 3rem;
+}
+.socials {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px #000000;
+}
+.list {
+  list-style: none;
+  text-align: center;
+  margin: 2.5rem auto;
+  margin-left: -40px;
+}
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px #000000;
+}
+footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+.list li {
+  display: inline;
+  margin: 0rem 0.5rem;
 }
